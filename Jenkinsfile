@@ -19,7 +19,9 @@ pipeline {
                 sh "ls -a"
                 sh "ls"
                 sh "docker info" 
-                sh "docker build -t tomcatsamplewebapp:${env.BUILD_ID}"
+                sh "docker build -t jenkins-demo:${BUILD_NUMBER} ."
+                sh "docker tag jenkins-demo:${BUILD_NUMBER} jenkins-demo:latest"
+                sh "docker images"
             }
         }
 
